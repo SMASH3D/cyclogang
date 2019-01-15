@@ -1,0 +1,41 @@
+version: '3'
+services:
+    db:
+        image: mysql
+        command: ["--default-authentication-plugin=mysql_native_password"]
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: cyclogang
+            MYSQL_USER: cyclogang
+            MYSQL_PASSWORD: taathe9Aid3ilei5
+    php:
+        build: ./php-fpm
+        ports:
+            - "9000:9001"
+        volumes:
+            - ./cyclogang:/var/www/cyclogang
+        links:
+            - db
+        extra_hosts:
+            - "docker.host:127.0.0.1"
+    nginx:
+        build: ./nginx
+        ports:
+            - "80:80"
+        links:
+            - php
+        volumes:
+            - ./logs/nginx:/var/log/nginx:cached
+            - ./cyclogang:/var/www/cyclogang:cached
+    elk:
+        image: willdurand/elk
+        ports:
+            - "81:80"
+        volumes:
+            - ./elk/logstash:/etc/logstash:cached
+            - ./elk/logstash/patterns:/opt/logstash/patterns:cached
+            - ./logs/cyclogang:/var/www/cyclogang/var/log:cached
+            - ./logs/nginx:/var/log/nginx:cached
+
