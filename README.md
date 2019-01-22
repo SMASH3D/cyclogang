@@ -33,12 +33,6 @@ http://cyclogang.localhost:80
 ## Kibana
 http://cyclogang.localhost:81
 
-## Read logs
-You can access Nginx and Symfony application logs in the following directories on your host machine:
-
-cyclogang/logs/nginx
-cyclogang/logs/symfony
-
 ## Use xdebug!
 To use xdebug change the line "docker.host:127.0.0.1" in docker-compose.yml and replace 127.0.0.1 with your machine ip address. If your IDE default port is not set to 5902 you should do that, too.
 
