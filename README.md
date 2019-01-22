@@ -3,7 +3,7 @@ Cyclogang
 
 Building up social features on top of strava
 
-#Installation
+## Installation
 
 ```git clone https://github.com/SMASH3D/cyclogang```
 
@@ -16,7 +16,7 @@ Note : you can rebuild all Docker images by running:
 
 ```docker-compose build```
 
-# Containers
+## Containers
 Here are the docker-compose built images:
 
 db: This is the MySQL database container,
@@ -24,23 +24,23 @@ php: This is the PHP-FPM container including the application volume mounted on,
 nginx: This is the Nginx webserver container in which php volumes are mounted too,
 elk: This is a ELK stack container which uses Logstash to collect logs, send them into Elasticsearch and visualize them with Kibana.
 
-#Web
+## Web
 http://cyclogang.localhost:80
 
-#Kibana
+## Kibana
 http://cyclogang.localhost:81
 
-#Read logs
+## Read logs
 You can access Nginx and Symfony application logs in the following directories on your host machine:
 
 cyclogang/logs/nginx
 cyclogang/logs/symfony
 
-#Use xdebug!
+## Use xdebug!
 To use xdebug change the line "docker.host:127.0.0.1" in docker-compose.yml and replace 127.0.0.1 with your machine ip address. If your IDE default port is not set to 5902 you should do that, too.
 
-Read logs
+## Read logs
 You can access Nginx and Symfony application logs in the following directories on your host machine:
 
-logs/nginx
-logs/symfony
+  logs/nginx
+  logs/symfony
