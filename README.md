@@ -42,5 +42,6 @@ To use xdebug change the line "docker.host:127.0.0.1" in docker-compose.yml and 
 ## Read logs
 You can access Nginx and Symfony application logs in the following directories on your host machine:
 
-  logs/nginx
-  logs/symfony
+  cyclogang/logs/nginx
+  
+  cyclogang/logs/symfony
